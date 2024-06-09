@@ -1,0 +1,35 @@
+import React from 'react';
+import './card.css'; // Assuming a CSS file named card.css exists
+// Import the data from a separate file (assuming data.js)
+import data from '../data/data';
+export default function Card() {
+  // Use destructuring to extract product properties directly
+  return (
+    
+    <div className="product-card"> 
+         {/* <input type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } />
+     <button className='search' > Search</button>    */}
+
+      {data.map((product, index) => (
+        <div key={product.id}> 
+          <div className="container">
+            <div className="wrapper">
+              <div className="banner-image">
+                <img src={product.imageUrl} alt={product.name} /> 
+              </div>
+
+              <h1>{product.name}</h1>
+              <p>{product.description}</p>
+              <p>Price: ${product.price.toFixed(2)}</p> {/* Format price with two decimal places */}
+            </div>
+            <div className="button-wrapper">
+              <button className="btn outline">DETAILS</button>
+              <button className="btn fill">BUY NOW</button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
