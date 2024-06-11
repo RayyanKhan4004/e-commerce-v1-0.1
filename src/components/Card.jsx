@@ -1,14 +1,15 @@
 import React from 'react';
-import './card.css'; // Assuming a CSS file named card.css exists
-// Import the data from a separate file (assuming data.js)
+import './card.css';
+
 import data from '../data/data';
 export default function Card() {
   // Use destructuring to extract product properties directly
   return (
+    // search logic //
+
     
     <div className="product-card"> 
-         {/* <input type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } />
-     <button className='search' > Search</button>    */}
+         <input  type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } />
 
       {data.map((product, index) => (
         <div key={product.id}> 

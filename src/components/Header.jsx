@@ -18,11 +18,12 @@ const header = function(){
       <h1 className='h1-nav'>  <button> <NavLink to="/" class activeClassName={"active-d"} end={true} > Home </NavLink></button></h1>
       <h1 className='h1-nav'><button> <NavLink to='/cart' > Cart </NavLink></button></h1>
       <div className='container-nav' >
-     <input style={{zIndex : '2',}} type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } />
-     <button className='search' > Search</button>    
+
+     {/* <button className='search' > Search</button>     */}
      </div>
       <div className='login-div'> <button className='login-btn' > 
-      <NavLink activeClassName={`active-d`} to="/login">Login</NavLink></button></div>        <div className='cart-nav'>
+      <NavLink activeClassName={`active-d`} to="/login">Login</NavLink></button></div>
+        <div className='cart-nav'>
           <span>
             <button onClick={goToCartFx} className='cart-nav' >
               {/* npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome */}

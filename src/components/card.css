@@ -148,9 +148,12 @@ h1{
 }
 @media (max-width: 576px) {
     .product-card{
-        display: grid;
+        display: grid; 
+        margin-left: 10vh;
         grid-template-columns: repeat(1, 1fr);
+        align-items: center;
     .container{
+     
       justify-content: center;
         align-items: center;
     }
@@ -159,4 +162,20 @@ h1{
   font-size: 0.6rem
 }
     
+}
+.product-card > input{
+  height: 30px;
+  width: auto;
+  display: grid;
+  /* z-index: ; */
+  /* position:fixed; */
+  grid-column: 1/4;
+  background: transparent;
+  border: none;
+  color: snow;
+  /* justify-items: center; */
+  text-align: center;
+}
+.product-card > input:focus{
+  outline: none;
 }

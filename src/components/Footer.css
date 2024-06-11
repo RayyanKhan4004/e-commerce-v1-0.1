@@ -1,0 +1,11 @@
+:root{
+    --mainColor : linear-gradient(45deg, rgb(48, 66, 70) 0%, rgb(10, 1, 49) 100%);  
+}
+.container-footer{
+    display: grid;
+    background: var(--mainColor);
+    
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    
+}
