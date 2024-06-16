@@ -15,7 +15,7 @@ const header = function(){
   return (
     <>
     <div className='container-nav'>
-      <h1 className='h1-nav'>  <button> <NavLink to="/" class activeClassName={"active-d"} end={true} > Home </NavLink></button></h1>
+      <h1 className='h1-nav'>  <button> <NavLink to="/"  activeClassName={"active-d"} end={true} > Home </NavLink></button></h1>
       <h1 className='h1-nav'><button> <NavLink to='/cart' > Cart </NavLink></button></h1>
       <div className='container-nav' >
 
