@@ -1,7 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { removeItems } from '../redux store/slice';
 
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 function Cart() {
+  const dispatch = useDispatch()
+  function handleRemove(){
+    // console.log(item.id)
+    dispatch(removeItems(item.id))
+  }
   const cartSlice = useSelector((state) => state.cart)
   console.log(cartSlice)
   return (
@@ -10,15 +17,17 @@ function Cart() {
     <h2>total products : {cartSlice.noOfProducts}</h2>
       <div>
         {cartSlice.arrOfProducts.map((item ,i) => (
-          <div key={i}><br />
+          <div key={i}>
           <h1>{item.name}</h1>
-            key:{item.name}
-          price : {item.price}
-          <h2> name  : {item.name}</h2>
+          
+        { Boolean(item.key) && (<p> key:{item.key}  <br /> </p>)}
+           
+       {  Boolean(item.price ) &&  <p> price : {item.price} 
+       &nbsp; <button onClick={handleRemove}>Remove</button></p>}
           </div>
            
         ))}
-        total price : {cartSlice.TotalPrice}
+        total price : {Math.floor(cartSlice.TotalPrice)} 
       </div>
     </div>
   )
