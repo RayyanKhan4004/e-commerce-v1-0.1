@@ -2,12 +2,12 @@
 import './card.css';
 import { addItems  } from '../redux store/slice';
 import { useDispatch } from 'react-redux';
-
 import data from '../data/data';
 export default function Card() {
+  let display = [...data]
+  const [searchText , setSearchText ] = useState('')
   const dispatch = useDispatch();
   console.log(data)
-  // Use destructuring to extract product properties directly
 function addItemsfx(id){
   console.log(id)
 dispatch(addItems({
@@ -17,10 +17,16 @@ dispatch(addItems({
   quantity : 1
 }))
 }
+// handle search
+function handleChange(e){
+setSearchText(e.target.value)
+// data.filter(items , index){
 
+// }
+}
   return (
 <>
-     <div className='product-card' >    <input  type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } />
+     <div className='product-card' >    <input  type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } onChange={handleChange} />
      </div>
     <div className="product-card"> 
 
