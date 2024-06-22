@@ -4,6 +4,7 @@ import Card from './components/Card';
 import { createBrowserRouter} from 'react-router-dom'
 import Login from './components/Login';
 import Cart from './components/Cart';
+import Footer from './components/Footer';
 // export default function App() {
    const routes = createBrowserRouter(
  [
@@ -11,7 +12,9 @@ import Cart from './components/Cart';
     path: '/', element: <div>
     <Header/>
     <hr />
-    <Card/>
+    <Card/> 
+    <hr />
+    <Footer/>
   </div>
   },
   // {
