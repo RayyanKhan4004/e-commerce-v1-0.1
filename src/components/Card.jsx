@@ -1,36 +1,62 @@
- import React, { useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import './card.css';
 import { addItems  } from '../redux store/slice';
 import { useDispatch } from 'react-redux';
 import data from '../data/data';
+
+
+
+
 export default function Card() {
-  let display = [...data]
-  const [searchText , setSearchText ] = useState('')
+
+
+  const [filteredData , setFilteredData] = useState()
+  const [ searchData , setSearchData]  = useState([...data])
+  const [searchText , setSearchText   ] = useState('')
   const dispatch = useDispatch();
-  console.log(data)
+
+
 function addItemsfx(id){
-  console.log(id)
+  
 dispatch(addItems({
+
   key : data[id ].id,
   name : data[id ].name,
   price : data[id ].price,
   quantity : 1
 }))
 }
-// handle search
-function handleChange(e){
-setSearchText(e.target.value)
-// data.filter(items , index){
 
-// }
+
+// handle search
+
+function handleChange(e){
+  
+setSearchText(e.target.value)
+let  filteredData = data.filter((product) =>
+  product.name.toLowerCase().includes(searchText.toLowerCase())
+
+);
+setSearchData(filteredData)
+setFilteredData(filteredData)
 }
+useEffect(() => {
+
+  if (searchText === '') {
+    setSearchData([...data]); // Reset to all data
+  } else {
+    setSearchData(filteredData);
+  }
+}, [searchText]);
+
+
   return (
 <>
-     <div className='product-card' >    <input  type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } onChange={handleChange} />
+     <div className='product-card' >    <input  type="search" name="search" id="search" placeholder='search'  className= {`container-nav-s ` } onChange={handleChange} value={searchText} />
      </div>
     <div className="product-card"> 
 
-      {data.map((product, index) => (
+      {searchData.map((product, index) => (
         
         <div key={product.id}> 
           <div className="container">
