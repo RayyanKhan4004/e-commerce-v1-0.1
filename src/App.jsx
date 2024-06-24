@@ -5,6 +5,7 @@ import { createBrowserRouter} from 'react-router-dom'
 import Login from './components/Login';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import Contactus from './components/Contactus';
 // export default function App() {
    const routes = createBrowserRouter(
  [
@@ -22,11 +23,13 @@ import Footer from './components/Footer';
 
   // },
   {
-    path: '/login', element: <><Header/> <hr /> <Login/></>
+    path: '/login', element: <><Header/> <hr /> <Login/><Footer/></>
   },{
-    path: '/cart', element: <><Header/> <hr /> <Cart/></>
-  }
-
+    path: '/cart', element: <><Header/> <hr /> <Cart/><Footer/></>
+  },
+{
+  path : "/contactUS", element : <><Header/> <hr /> <Contactus/> <Footer/></>
+}
  ] )
 //   return (
 //     <div>
