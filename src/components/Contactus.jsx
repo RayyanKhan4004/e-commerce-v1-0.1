@@ -1,5 +1,6 @@
 import React from 'react'
 import './contactus.css'
+import { AllImpInfo } from '../data/AllInpInfo'
 function Contactus() {
   return (
     <div style={{display: 'flex',justifyContent :'center' ,alignItems : 'center'}}>
@@ -30,7 +31,11 @@ function Contactus() {
           <div className="col-xs-6 col-md-3">
             <h1>Categories</h1>
             <ul className="footer-links">
-             <li>1</li>
+            {AllImpInfo.catagory.map((curr,ind)=>(
+              <li>{curr}</li>
+             ))}
+
+             
             </ul>
           </div>
 
