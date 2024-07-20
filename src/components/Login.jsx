@@ -1,40 +1,65 @@
 import React from 'react'
-import { useState } from 'react';
+import {login} from '../redux store/Login';
+import { useState , useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 function Login() {
-    const [age, setAge] = useState(-1); // Initial age value (adjust as needed)
+    const [age, setAge] = useState(-99); // Initial age value (adjust as needed)
+    const dispatch = useDispatch();
+    const selector = useSelector(state => state.Login);
 
+    useEffect(() => {
+      console.log('Selector state after dispatch:', selector);
+    }, [selector]);
 
-
-    // function handleSubmit(event) {
-    //   event.preventDefault();
-    //   const formData = new FormData(event.target);
-    //   const obj = {};
-    //   for (const [key, value] of formData.entries()) {
-    //     obj[key] = value;
-    //   }
-    //   console.log(obj);
-    // }
 
 function    handleSubmit(event){
  event.preventDefault();
  const formData = new FormData(event.target)
 const obj  = Object.fromEntries(formData)
-console.log(formData , obj)
+   if (obj.userName && obj.number) {
+      console.log('Dispatching login action with:', obj);
+      dispatch(login({
+        user: obj.userName,
+        email: obj.email,
+        password: obj.password,
+        adress: obj.adress,
+        phone: obj.number,
+        isLogin: true
+      }));
+    } else {
+      alert("Please enter name and number");
+    }
+    console.log('Selector state after dispatch:', selector);
+  }
  
 
-    //email logic 
 
-  
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const formData = new FormData(event.target);
+//   const obj = Object.fromEntries(formData);
+//   if (obj.userName && obj.number) {
+//     console.log('Dispatching login action with:', obj);
+//     dispatch(login({
+//       user: obj.userName,
+//       email: obj.email,
+//       password: obj.password,
+//       adress: obj.adress,
+//       phone: obj.number,
+//       isLogin: true
+//     }));
+//   } else {
+//     alert("Please enter name and number");
+//   }
+//   console.log('Selector state after dispatch:', selector);
+// }
+//email logic 
 
-
-
-    }
-    
-   
-
-     
+    // }
+      
   return (
-    <div style={{display : 'grid' , placeItems : 'center'}} >
+    <div style={{display : 'grid' , placeItems : 'center' , zIndex : 2}} >
     <form onSubmit={handleSubmit}>
       <label  style={{color : 'snow'}}  >Username:</label> <br />
       <input required name='userName' type="text" /> <br />
@@ -66,4 +91,4 @@ required
   )
 }
 
-export default Login
+export default Login;

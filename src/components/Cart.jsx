@@ -1,20 +1,20 @@
 import React from 'react'
 import { removeItems } from '../redux store/slice';
-
+import './cart.css'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 function Cart() {
   const dispatch = useDispatch()
-  function handleRemove(){
-    // console.log(item.id)
-    dispatch(removeItems(item.id))
+  function handleRemove(item , i){
+    // console.log(item.key)
+    dispatch(removeItems({key : item.key,ind : i , price : item.price}))
   }
   const cartSlice = useSelector((state) => state.cart)
-  console.log(cartSlice)
+  // console.log(cartSlice)
   return (
-    <div>
+    <div className='cart-all' >
       <h1>Cart</h1>
-    <h2>total products : {cartSlice.noOfProducts}</h2>
+    <h2>Total products : {cartSlice.noOfProducts}</h2>  <h2> Total price : {Math.trunc(cartSlice.TotalPrice)}  </h2>
       <div>
         {cartSlice.arrOfProducts.map((item ,i) => (
           <div key={i}>
@@ -23,11 +23,11 @@ function Cart() {
         { Boolean(item.key) && (<p> key:{item.key}  <br /> </p>)}
            
        {  Boolean(item.price ) &&  <p> price : {item.price} 
-       &nbsp; <button onClick={handleRemove}>Remove</button></p>}
+       &nbsp; <button onClick={()=>handleRemove(item , i )}>Remove</button></p>}
           </div>
            
         ))}
-        total price : {Math.floor(cartSlice.TotalPrice)} 
+        <h2><button>Submit ➡️</button></h2>
       </div>
     </div>
   )

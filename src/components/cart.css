@@ -1,0 +1,7 @@
+.cart-all{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+}
+.cart-all > h2{
+    color: snow;
+}

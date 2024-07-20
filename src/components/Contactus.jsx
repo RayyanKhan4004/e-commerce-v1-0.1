@@ -1,5 +1,5 @@
 import React from 'react'
-import './contactus.css'
+
 import { AllImpInfo } from '../data/AllInpInfo'
 function Contactus() {
   return (
@@ -46,7 +46,7 @@ function Contactus() {
               <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
               <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
               <li><a href="#TremsAndServices">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+              
             </ul>
           </div>
         </div>
