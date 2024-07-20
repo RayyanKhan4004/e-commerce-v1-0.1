@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Contactus from './components/Contactus';
+import Terms from './components/Terms';
 // export default function App() {
    const routes = createBrowserRouter(
  [
@@ -29,6 +30,10 @@ import Contactus from './components/Contactus';
   },
 {
   path : "/contactUS", element : <><Header/> <hr /> <Contactus/> <Footer/></>
+}, 
+{
+  path : "/terms", element : <><Header/> <hr /> <Terms/> <Footer
+  /></>
 }
  ] )
 //   return (
