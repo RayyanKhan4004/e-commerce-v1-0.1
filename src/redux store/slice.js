@@ -9,15 +9,17 @@ const cartSlice = createSlice({
             quantity : 0
         }],
         TotalPrice : 0,
+        isLoggedIn : false
     },
      reducers : {
         addItems : (state , action) => {
-            console.log(action.payload)
             state.TotalPrice += action.payload.price
             let product = action.payload;
              state.noOfProducts++
-            const exestingitem = state.arrOfProducts.find((value , i ) => value.key === product.key)
-            if(!exestingitem){
+             console.log(product.key)
+            const exestingitem = state.arrOfProducts.find((value ) => {value.key == action.payload.key
+            })
+            if(exestingitem == undefined? true : false){
             state.arrOfProducts.push({ 
                 key: product.key,
                 name : product.name,
@@ -29,25 +31,26 @@ const cartSlice = createSlice({
                     name : product.name,
                     price : product.price,})
                 exestingitem.quantity += 1
-                // state.TotalPrice += action.payload.price
             }
         },
         removeItems : (state , action) => {
-           if(state.noOfProducts){
-            state.noOfProducts--
-           } 
-            const exestingitem = state.arrOfProducts.find(value => value.key === action.payload.key)
-            state.arrOfProducts.find((value => value.key === key))
-            if(exestingitem){
-                state.arrOfProducts.quantity--;
-                state.TotalPrice -= action.payload.price;
-            }else{
-                let key = action.payload.key
-                state.arrOfProducts = state.arrOfProducts.filter((item) => item.key !== key)
-            }
+                
+                let num = state.arrOfProducts.length -1  
+                let price = 0 ;
+                let ind = action.payload.i            
+                state.arrOfProducts.splice(ind, 1 )
+                state.noOfProducts = num
+                state.arrOfProducts.forEach((curr)=>{
+                  price += curr.price
+                })
+                console.log(price)
+
+                state.TotalPrice = price
+                },
+
+                
            
 
-        } 
      }
 })
 
